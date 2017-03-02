@@ -1,0 +1,20 @@
+     "MyEC2": { 
+14       "Type" : "AWS::EC2::Instance", 
+15       "Properties" : { 
+16         "ImageId" : "ami-db704cb8", 
+17         "KeyName" : "<REDACTED>", 
+18         "InstanceType" : "t2.micro", 
+19         "NetworkInterfaces" : [ { 
+20           "AssociatePublicIpAddress" : "true", 
+21           "DeviceIndex" : "0", 
+22           "GroupSet" : [ {"Ref" : "SSHServerSecurityGroup"} ], 
+23           "SubnetId" : "subnet-eccc6988" 
+24         } ], 
+25       }, 
+26       "CreationPolicy": { 
+27         "ResourceSignal": { 
+28           "Count": 1, 
+29           "Timeout": "PT10M" 
+30         } 
+31       } 
+32     }, 
